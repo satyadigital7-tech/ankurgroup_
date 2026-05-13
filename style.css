@@ -877,6 +877,7 @@ h1, h2, h3, h4, h5, h6 {
         letter-spacing: 2px;
     }
     
+    /* Hero/Banner Responsiveness */
     .slide-content h1 {
         font-size: 2rem;
         letter-spacing: 2px;
@@ -888,6 +889,106 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0 15px;
     }
     
+    /* Page & Category Heros */
+    .page-hero {
+        height: auto;
+        min-height: 40vh;
+        padding: 120px 20px 60px 20px !important;
+    }
+    
+    .page-hero-content {
+        padding-top: 0 !important;
+    }
+    
+    .page-hero-content h1 {
+        font-size: 2.2rem !important;
+        letter-spacing: 2px;
+    }
+    
+    .res-hero {
+        height: auto !important;
+        min-height: 70vh;
+        padding: 120px 20px 40px 20px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .res-hero-content {
+        padding-top: 0 !important;
+        margin-bottom: 40px;
+    }
+    
+    .res-hero-content h1 {
+        font-size: 2.5rem !important;
+        letter-spacing: 2px;
+    }
+    
+    .res-hero-content p {
+        font-size: 0.95rem !important;
+        line-height: 1.6;
+    }
+    
+    .res-hero-stats {
+        position: static !important;
+        border-top: 1px solid rgba(255,255,255,0.2);
+        background: rgba(0,0,0,0.5) !important;
+        padding: 25px 15px !important;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    /* Project Item Overhaul */
+    .project-list-item {
+        flex-direction: column;
+        gap: 25px !important;
+        margin-bottom: 40px !important;
+        padding-bottom: 40px !important;
+    }
+    
+    .proj-img {
+        flex: none !important;
+        width: 100%;
+    }
+    
+    .proj-img img {
+        height: 240px !important;
+    }
+    
+    .proj-details {
+        width: 100%;
+    }
+    
+    .proj-title {
+        font-size: 1.4rem !important;
+        margin-bottom: 10px;
+    }
+    
+    .proj-desc {
+        font-size: 0.9rem !important;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    
+    .proj-features {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .proj-actions {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .proj-actions .btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+    }
+    
+    /* Section Typographies */
     .section-title {
         font-size: 1.8rem !important;
         letter-spacing: 2px;
@@ -924,8 +1025,10 @@ h1, h2, h3, h4, h5, h6 {
     .stats-grid,
     .projects-carousel,
     .services-grid,
-    .footer-grid {
-        grid-template-columns: 1fr;
+    .footer-grid,
+    .leadership-grid,
+    .vision-grid {
+        grid-template-columns: 1fr !important;
     }
     
     .slide-content h1 {
