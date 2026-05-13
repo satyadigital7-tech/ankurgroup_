@@ -114,6 +114,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Hamburger Menu Mobile Toggle
+    const menuToggle = document.querySelector('.nav-right');
+    const menuToggleIcon = document.querySelector('.nav-right i');
+    const navLinks = document.querySelector('.nav-links');
 
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Toggle hamburger icon between bars and close X
+            if (navLinks.classList.contains('active')) {
+                menuToggleIcon.classList.remove('fa-bars');
+                menuToggleIcon.classList.add('fa-xmark');
+            } else {
+                menuToggleIcon.classList.remove('fa-xmark');
+                menuToggleIcon.classList.add('fa-bars');
+            }
+        });
+    }
 
 });
