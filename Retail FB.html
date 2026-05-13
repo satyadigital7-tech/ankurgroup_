@@ -32,7 +32,7 @@
             <a href="Hospitality.html">Hospitality</a>
             <a href="Retail FB.html" class="active">Retail & Mall</a>
             <a href="Data Centres.html">Data Centre</a>
-            <a href="#">International Projects</a>
+            <a href="International Projects.html">International Projects</a>
         </nav>
         <div class="nav-right">
             <i class="fa-solid fa-bars"></i>
@@ -343,7 +343,54 @@
         </div>
     </footer>
 
+    <!-- Luxury Project Modal -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-grid">
+                <div class="modal-image-panel">
+                    <img id="modal-img" src="" alt="Project Image">
+                </div>
+                <div class="modal-info-panel">
+                    <span class="modal-tag">RETAIL & MALL</span>
+                    <h2 id="modal-title">Project Title</h2>
+                    <p id="modal-desc" class="modal-long-desc">Detailed project description goes here...</p>
+                    
+                    <div class="modal-spec-grid">
+                        <div class="spec-item">
+                            <span class="spec-label">Configurations</span>
+                            <span id="modal-spec-config" class="spec-value">-</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Status</span>
+                            <span id="modal-spec-status" class="spec-value">-</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Location</span>
+                            <span id="modal-spec-loc" class="spec-value">-</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Architects</span>
+                            <span id="modal-spec-arch" class="spec-value">-</span>
+                        </div>
+                    </div>
 
+                    <div class="modal-gallery">
+                        <h4>GALLERY PREVIEW</h4>
+                        <div class="gallery-thumbs">
+                            <img class="thumb active" src="" alt="Thumbnail 1">
+                            <img class="thumb" src="" alt="Thumbnail 2">
+                            <img class="thumb" src="" alt="Thumbnail 3">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-primary btn-block">Download Premium Brochure</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

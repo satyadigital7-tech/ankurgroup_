@@ -1,6 +1,6 @@
 import os, re
 
-files = ['index.html', 'about us.html', 'Residential.html', 'Office Parks.html', 'Hospitality.html', 'Retail FB.html', 'Data Centres.html']
+files = ['index.html', 'about us.html', 'Residential.html', 'Office Parks.html', 'Hospitality.html', 'Retail FB.html', 'Data Centres.html', 'International Projects.html']
 nav_links = [
     ('about us.html', 'About'),
     ('Residential.html', 'Residential'),
@@ -8,7 +8,7 @@ nav_links = [
     ('Hospitality.html', 'Hospitality'),
     ('Retail FB.html', 'Retail & Mall'),
     ('Data Centres.html', 'Data Centre'),
-    ('#', 'International Projects')
+    ('International Projects.html', 'International Projects')
 ]
 
 for filename in files:
