@@ -894,6 +894,48 @@ h1, h2, h3, h4, h5, h6 {
         display: none !important;
     }
     
+    /* Shaping Skylines Section Mobile Overhaul */
+    .tabs-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+        border-bottom: none !important;
+        padding-bottom: 0 !important;
+        margin-bottom: 25px !important;
+    }
+    
+    .tabs {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        gap: 20px !important;
+        padding: 5px 10px 15px 10px !important;
+        border-bottom: 1px solid #eee !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    .tabs::-webkit-scrollbar {
+        display: none !important; /* Hide scrollbar for premium touch slider look */
+    }
+    
+    .tab {
+        display: inline-block !important;
+        flex-shrink: 0 !important;
+        padding-bottom: 10px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    .tab.active::after {
+        bottom: -16px !important;
+    }
+    
+    .carousel-nav {
+        display: none !important; /* Hide arrows on mobile for cleaner swipe focus */
+    }
+    
     /* Page & Category Heros */
     .page-hero {
         height: auto;
