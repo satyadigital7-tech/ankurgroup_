@@ -1445,4 +1445,101 @@ h1, h2, h3, h4, h5, h6 {
     100% { opacity: 0.5; transform: scale(0.95); }
 }
 
+/* =========================================
+   Luxury Scroll Reveal System
+========================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.215, 0.610, 0.355, 1), transform 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+    will-change: transform, opacity;
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger item delays inside grids */
+.revealed:nth-child(2) { transition-delay: 0.15s; }
+.revealed:nth-child(3) { transition-delay: 0.3s; }
+.revealed:nth-child(4) { transition-delay: 0.45s; }
+
+/* =========================================
+   Premium Hover & Micro-Interactions
+========================================= */
+
+/* Zoom effect on hover for image cards */
+.project-card, .leader-card, .vm-card, .project-list-item {
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.project-card:hover, .leader-card:hover, .vm-card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 20px 40px rgba(17, 17, 17, 0.12) !important;
+}
+
+.card-img, .proj-img, .story-image {
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img img, .proj-img img, .story-image img {
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.project-card:hover .card-img img,
+.project-list-item:hover .proj-img img,
+.story-image:hover img {
+    transform: scale(1.08);
+}
+
+/* Interactive Navigation Underlines */
+.nav-links a::after {
+    height: 2px !important;
+    background: var(--gold) !important;
+}
+
+/* Premium Background Slide Hover for Buttons */
+.btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s ease, border-color 0.4s ease, transform 0.3s ease !important;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gold);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn:hover {
+    color: #111 !important;
+    border-color: var(--gold) !important;
+    transform: translateY(-2px);
+}
+
+.btn:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Specific styling for outline-dark / dark buttons hover */
+.btn.dark:hover {
+    color: #fff !important;
+}
+
+.btn.dark::before {
+    background: var(--primary);
+}
+
 

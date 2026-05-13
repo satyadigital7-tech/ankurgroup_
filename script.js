@@ -134,4 +134,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Luxury Scroll Reveal System
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target); // Trigger only once
+            }
+        });
+    }, observerOptions);
+
+    // Dynamic attachment to all premium grids, sections, and structural cards
+    const targetsToReveal = document.querySelectorAll(
+        '.section-padding, .project-card, .leader-card, .project-list-item, .vm-card, .stat-item, .about-preview, .stats-strip, .services-grid .service-card, .res-hero-stats'
+    );
+    
+    targetsToReveal.forEach(el => {
+        el.classList.add('reveal');
+        revealObserver.observe(el);
+    });
+
 });
