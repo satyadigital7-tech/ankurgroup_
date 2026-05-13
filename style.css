@@ -936,6 +936,12 @@ h1, h2, h3, h4, h5, h6 {
         display: none !important; /* Hide arrows on mobile for cleaner swipe focus */
     }
     
+    /* Mobile Fixed Image Attachment Overrides */
+    .full-width-image {
+        background-attachment: scroll !important;
+        height: 40vh !important; /* Scale height down slightly on mobile for better framing */
+    }
+    
     /* Page & Category Heros */
     .page-hero {
         height: auto;
