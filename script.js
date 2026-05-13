@@ -79,6 +79,82 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     }
 
+    // Signature Developments Dynamic Slider
+    const sigPrev = document.querySelector('.sig-prev');
+    const sigNext = document.querySelector('.sig-next');
+    const sigImg = document.querySelector('.sig-main-img');
+    const sigTitle = document.querySelector('.sig-title');
+    const sigDesc = document.querySelector('.sig-desc');
+    const sigLink = document.querySelector('.sig-link');
+
+    const signatureDevelopments = [
+        {
+            image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=2000",
+            title: "Ankur Group Atmosphere",
+            desc: "Luxury residences with life-enriching amenities designed by the Best in the World.",
+            link: "Residential.html"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000",
+            title: "EON Free Zone",
+            desc: "State-of-the-art special economic zones and IT business parks.",
+            link: "Office Parks.html"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=2000",
+            title: "The Ritz-Carlton, Pune",
+            desc: "World-class luxury hospitality service redefined in the heart of Pune.",
+            link: "Hospitality.html"
+        },
+        {
+            image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=2000",
+            title: "Equinix Ankur Group DC",
+            desc: "Premium, hyper-scalable green data centers built to support digital infrastructure.",
+            link: "Data Centres.html"
+        }
+    ];
+
+    let currentSig = 0;
+
+    function updateSigDevelopment(index) {
+        if (!sigImg || !sigTitle || !sigDesc || !sigLink) return;
+        
+        sigImg.style.opacity = 0;
+        sigTitle.style.opacity = 0;
+        sigDesc.style.opacity = 0;
+        sigLink.style.opacity = 0;
+        
+        setTimeout(() => {
+            const dev = signatureDevelopments[index];
+            sigImg.src = dev.image;
+            sigTitle.textContent = dev.title;
+            sigDesc.textContent = dev.desc;
+            sigLink.href = dev.link;
+            
+            sigImg.style.opacity = 1;
+            sigTitle.style.opacity = 1;
+            sigDesc.style.opacity = 1;
+            sigLink.style.opacity = 1;
+        }, 350);
+    }
+
+    if (sigPrev && sigNext) {
+        if (sigImg) sigImg.style.transition = "opacity 0.4s ease";
+        if (sigTitle) sigTitle.style.transition = "opacity 0.4s ease";
+        if (sigDesc) sigDesc.style.transition = "opacity 0.4s ease";
+        if (sigLink) sigLink.style.transition = "opacity 0.4s ease";
+
+        sigPrev.addEventListener('click', () => {
+            currentSig = (currentSig - 1 + signatureDevelopments.length) % signatureDevelopments.length;
+            updateSigDevelopment(currentSig);
+        });
+
+        sigNext.addEventListener('click', () => {
+            currentSig = (currentSig + 1) % signatureDevelopments.length;
+            updateSigDevelopment(currentSig);
+        });
+    }
+
     // Preloader and Page Transitions
     window.addEventListener('load', () => {
         const preloader = document.getElementById('preloader');
