@@ -236,4 +236,116 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
+    // Luxury Project Modal Functionality
+    const projectModal = document.getElementById('project-modal');
+    const viewProjectBtns = document.querySelectorAll('.project-list-item .proj-actions a:first-child');
+    const modalCloseBtn = document.querySelector('#project-modal .modal-close');
+    
+    const projectDetails = {
+        "87 AVENUE": {
+            image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1200",
+            desc: "Collaborating with global wellness visionary design houses and landscape architects, 87 Avenue is a testament to the transformative power of premium homes. Nestled in Pune's ultra-premium Koregaon Park, it represents a standard of luxury living without compromise, boasting massive, state-of-the-art facilities.",
+            config: "4.5 & 5.5 BHK Residences",
+            status: "Under Construction",
+            loc: "Koregaon Park, Pune",
+            arch: "Kelly Hoppen Interiors",
+            thumbs: [
+                "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=200",
+                "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=200",
+                "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=200"
+            ]
+        },
+        "TRUMP TOWERS PUNE": {
+            image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=1200",
+            desc: "Designed to deliver the highest international standards of luxury, style, and status, Trump Towers Pune consists of two exquisite towers standing 22 stories tall. Enjoy breathtaking 360-degree views of Pune city, exclusive custom concierge services, and custom luxury amenities designed by the finest design houses.",
+            config: "5 BHK Condominiums",
+            status: "Ready to Move-In",
+            loc: "Kalyani Nagar, Pune",
+            arch: "Studio HBA (Singapore)",
+            thumbs: [
+                "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=200",
+                "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=200",
+                "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=200"
+            ]
+        },
+        "YOO VILLAS": {
+            image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=1200",
+            desc: "yoo villas is India's first branded villa enclave, offering ultra-luxurious private spaces built for unmatched tranquility. Designed in collaboration with international designer Kelly Hoppen, these beautiful villas exhibit fluid boundaries, high ceiling spacing, and organic materials.",
+            config: "4 & 5 BHK Luxury Villas",
+            status: "Ready to Move-In",
+            loc: "Kharadi, Pune",
+            arch: "YOO Design / Kelly Hoppen",
+            thumbs: [
+                "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=200",
+                "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=200",
+                "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=200"
+            ]
+        }
+    };
+
+    if (projectModal && viewProjectBtns.length > 0) {
+        viewProjectBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const projectItem = btn.closest('.project-list-item');
+                if (!projectItem) return;
+                
+                const titleEl = projectItem.querySelector('.proj-title');
+                const projectTitle = titleEl ? titleEl.textContent.trim().toUpperCase() : '';
+                
+                const data = projectDetails[projectTitle];
+                if (data) {
+                    document.getElementById('modal-img').src = data.image;
+                    document.getElementById('modal-title').textContent = projectTitle;
+                    document.getElementById('modal-desc').textContent = data.desc;
+                    document.getElementById('modal-spec-config').textContent = data.config;
+                    document.getElementById('modal-spec-status').textContent = data.status;
+                    document.getElementById('modal-spec-loc').textContent = data.loc;
+                    document.getElementById('modal-spec-arch').textContent = data.arch;
+                    
+                    const thumbElements = document.querySelectorAll('#project-modal .gallery-thumbs .thumb');
+                    thumbElements.forEach((thumb, i) => {
+                        if (data.thumbs && data.thumbs[i]) {
+                            thumb.style.display = 'block';
+                            thumb.src = data.thumbs[i];
+                            thumb.classList.remove('active');
+                            if (i === 0) thumb.classList.add('active');
+                            
+                            thumb.onclick = () => {
+                                thumbElements.forEach(t => t.classList.remove('active'));
+                                thumb.classList.add('active');
+                                document.getElementById('modal-img').src = data.thumbs[i].replace('&w=200', '&w=1200');
+                            };
+                        } else {
+                            thumb.style.display = 'none';
+                        }
+                    });
+
+                    projectModal.style.display = 'flex';
+                    projectModal.offsetHeight;
+                    projectModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        const closeModal = () => {
+            projectModal.classList.remove('active');
+            setTimeout(() => {
+                projectModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 400);
+        };
+
+        if (modalCloseBtn) {
+            modalCloseBtn.addEventListener('click', closeModal);
+        }
+
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) {
+                closeModal();
+            }
+        });
+    }
+
 });

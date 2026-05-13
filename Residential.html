@@ -316,9 +316,56 @@
             </div>
         </div>
     </footer>
+    <!-- Luxury Project Modal -->
+    <div id="project-modal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close Modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-grid">
+                <div class="modal-image-panel">
+                    <img id="modal-img" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=1200" alt="Project Image">
+                </div>
+                <div class="modal-info-panel">
+                    <span class="modal-tag">RESIDENTIAL</span>
+                    <h2 id="modal-title">Project Title</h2>
+                    <p id="modal-desc" class="modal-long-desc">Detailed project description goes here...</p>
+                    
+                    <div class="modal-spec-grid">
+                        <div class="spec-item">
+                            <span class="spec-label">Configurations</span>
+                            <span id="modal-spec-config" class="spec-value">-</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Status</span>
+                            <span id="modal-spec-status" class="spec-value">-</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Location</span>
+                            <span id="modal-spec-loc" class="spec-value">-</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Architects</span>
+                            <span id="modal-spec-arch" class="spec-value">Kelly Hoppen Interiors</span>
+                        </div>
+                    </div>
 
+                    <div class="modal-gallery">
+                        <h4>GALLERY PREVIEW</h4>
+                        <div class="gallery-thumbs">
+                            <img class="thumb active" src="" alt="Thumbnail 1">
+                            <img class="thumb" src="" alt="Thumbnail 2">
+                            <img class="thumb" src="" alt="Thumbnail 3">
+                        </div>
+                    </div>
 
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-primary btn-block">Download Premium Brochure</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
